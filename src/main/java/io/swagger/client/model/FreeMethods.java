@@ -13,8 +13,6 @@
 
 package io.swagger.client.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,21 +20,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+//Gerardo Ornelas
 /**
- * Attributes
+ * FreeMethods
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T14:21:46.668-03:00")
-public class Attributes {
+public class FreeMethods {
   @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("value_name")
-  private String valueName = null;
-  
-  @JsonProperty("values")
-  private List<Values> values = null;
+  @JsonProperty("rule")
+  private Rule rule = null;
 
-  public Attributes id(String id) {
+  public FreeMethods id(String id) {
     this.id = id;
     return this;
   }
@@ -54,52 +50,23 @@ public class Attributes {
     this.id = id;
   }
 
-  public Attributes valueName(String valueName) {
-    this.valueName = valueName;
+  public FreeMethods rule(Rule rule) {
+    this.rule = rule;
     return this;
   }
 
    /**
-   * Get valueName
-   * @return valueName
+   * Get rule
+   * @return rule
   **/
   @ApiModelProperty(value = "")
-  public String getValueName() {
-    return valueName;
+  public Rule getRule() {
+    return rule;
   }
 
-  public void setValueName(String valueName) {
-    this.valueName = valueName;
+  public void setRule(Rule rule) {
+    this.rule = rule;
   }
-  
-  
-  
-  public Attributes values(List<Values> values) {
-    this.values = values;
-    return this;
-  }
-
-  public Attributes addPicturesItem(Values item) {
-    if (this.values == null) {
-      this.values = new ArrayList<Values>();
-    }
-    this.values.add(item);
-    return this;
-  }
-
-  /**
-   * Get values
-   * @return values
-   **/
-  @ApiModelProperty(value = "")
-  public List<Values> getValues() {
-    return values;
-  }
-
-  public void setValues(List<Values> values) {
-    this.values = values;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -109,26 +76,24 @@ public class Attributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Attributes attributes = (Attributes) o;
-    return Objects.equals(this.id, attributes.id) &&
-        Objects.equals(this.valueName, attributes.valueName) &&
-        Objects.equals(this.values, attributes.values);
+    FreeMethods freeMethods = (FreeMethods) o;
+    return Objects.equals(this.id, freeMethods.id) &&
+        Objects.equals(this.rule, freeMethods.rule);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, valueName, values);
+    return Objects.hash(id, rule);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Attributes {\n");
+    sb.append("class FreeMethods {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    valueName: ").append(toIndentedString(valueName)).append("\n");
-    sb.append("    values: ").append(toIndentedString(values)).append("\n");
+    sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
     sb.append("}");
     return sb.toString();
   }

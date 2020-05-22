@@ -33,6 +33,9 @@ public class ItemJson {
 
   @JsonProperty("title")
   private String title = null;
+  
+  @JsonProperty("description")
+  private String description = null;
 
   @JsonProperty("available_quantity")
   private Integer availableQuantity = null;
@@ -42,6 +45,9 @@ public class ItemJson {
 
   @JsonProperty("buying_mode")
   private String buyingMode = null;
+  
+  @JsonProperty("sale_terms")
+  private List<SaleTerms> saleTerms = null;
 
   @JsonProperty("currency_id")
   private String currencyId = null;
@@ -65,7 +71,7 @@ public class ItemJson {
   private List<Attributes> attributes = null;
 
   @JsonProperty("shipping")
-  private List<Shipping> shipping = null;
+  private Shipping shipping = null;
 
   public ItemJson listingTypeId(String listingTypeId) {
     this.listingTypeId = listingTypeId;
@@ -128,6 +134,24 @@ public class ItemJson {
   public void setTitle(String title) {
     this.title = title;
   }
+  
+  public ItemJson description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   * @return description
+   **/
+  @ApiModelProperty(value = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }  
 
   public ItemJson availableQuantity(Integer availableQuantity) {
     this.availableQuantity = availableQuantity;
@@ -181,6 +205,32 @@ public class ItemJson {
 
   public void setBuyingMode(String buyingMode) {
     this.buyingMode = buyingMode;
+  }
+  
+  public ItemJson saleTerms(List<SaleTerms> saleTerms) {
+	    this.saleTerms = saleTerms;
+	    return this;
+	  }
+
+  public ItemJson addSaleTermsItem(SaleTerms saleTermsItem) {
+    if (this.saleTerms == null) {
+      this.saleTerms = new ArrayList<SaleTerms>();
+    }
+    this.saleTerms.add(saleTermsItem);
+    return this;
+  }
+
+  /**
+   * Get saleTerms
+   * @return saleTerms
+   **/
+  @ApiModelProperty(value = "")
+  public List<SaleTerms> getSaleTerms() {
+    return saleTerms;
+  }
+
+  public void setSaleTerms(List<SaleTerms> saleTerms) {
+    this.saleTerms = saleTerms;
   }
 
   public ItemJson currencyId(String currencyId) {
@@ -325,16 +375,8 @@ public class ItemJson {
     this.attributes = attributes;
   }
 
-  public ItemJson shipping(List<Shipping> shipping) {
+  public ItemJson shipping(Shipping shipping) {
     this.shipping = shipping;
-    return this;
-  }
-
-  public ItemJson addShippingItem(Shipping shippingItem) {
-    if (this.shipping == null) {
-      this.shipping = new ArrayList<Shipping>();
-    }
-    this.shipping.add(shippingItem);
     return this;
   }
 
@@ -343,14 +385,13 @@ public class ItemJson {
    * @return shipping
    **/
   @ApiModelProperty(value = "")
-  public List<Shipping> getShipping() {
+  public Shipping getShipping() {
     return shipping;
   }
 
-  public void setShipping(List<Shipping> shipping) {
+  public void setShipping(Shipping shipping) {
     this.shipping = shipping;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -364,9 +405,11 @@ public class ItemJson {
     return Objects.equals(this.listingTypeId, itemJson.listingTypeId) &&
             Objects.equals(this.pictures, itemJson.pictures) &&
             Objects.equals(this.title, itemJson.title) &&
+            Objects.equals(this.description, itemJson.description) &&
             Objects.equals(this.availableQuantity, itemJson.availableQuantity) &&
             Objects.equals(this.categoryId, itemJson.categoryId) &&
             Objects.equals(this.buyingMode, itemJson.buyingMode) &&
+            Objects.equals(this.saleTerms, itemJson.saleTerms) &&
             Objects.equals(this.currencyId, itemJson.currencyId) &&
             Objects.equals(this.condition, itemJson.condition) &&
             Objects.equals(this.siteId, itemJson.siteId) &&
@@ -379,7 +422,7 @@ public class ItemJson {
 
   @Override
   public int hashCode() {
-    return Objects.hash(listingTypeId, pictures, title, availableQuantity, categoryId, buyingMode, currencyId, condition, siteId, price, officialStoreId, variations, attributes, shipping);
+    return Objects.hash(listingTypeId, pictures, title, description, availableQuantity, categoryId, buyingMode, saleTerms, currencyId, condition, siteId, price, officialStoreId, variations, attributes, shipping);
   }
 
 
@@ -391,9 +434,11 @@ public class ItemJson {
     sb.append("    listingTypeId: ").append(toIndentedString(listingTypeId)).append("\n");
     sb.append("    pictures: ").append(toIndentedString(pictures)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    availableQuantity: ").append(toIndentedString(availableQuantity)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    buyingMode: ").append(toIndentedString(buyingMode)).append("\n");
+    sb.append("    saleTerms: ").append(toIndentedString(saleTerms)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
     sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
     sb.append("    siteId: ").append(toIndentedString(siteId)).append("\n");

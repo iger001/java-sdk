@@ -13,8 +13,6 @@
 
 package io.swagger.client.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,21 +20,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+//Gerardo Ornelas
 /**
  * Attributes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T14:21:46.668-03:00")
-public class Attributes {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-17T14:02:40.000-00:00")
+public class Values {
   @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("value_name")
-  private String valueName = null;
-  
-  @JsonProperty("values")
-  private List<Values> values = null;
+  @JsonProperty("name")
+  private String name = null;
 
-  public Attributes id(String id) {
+  public Values id(String id) {
     this.id = id;
     return this;
   }
@@ -54,50 +50,22 @@ public class Attributes {
     this.id = id;
   }
 
-  public Attributes valueName(String valueName) {
-    this.valueName = valueName;
+  public Values name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get valueName
-   * @return valueName
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(value = "")
-  public String getValueName() {
-    return valueName;
+  public String getName() {
+    return name;
   }
 
-  public void setValueName(String valueName) {
-    this.valueName = valueName;
-  }
-  
-  
-  
-  public Attributes values(List<Values> values) {
-    this.values = values;
-    return this;
-  }
-
-  public Attributes addPicturesItem(Values item) {
-    if (this.values == null) {
-      this.values = new ArrayList<Values>();
-    }
-    this.values.add(item);
-    return this;
-  }
-
-  /**
-   * Get values
-   * @return values
-   **/
-  @ApiModelProperty(value = "")
-  public List<Values> getValues() {
-    return values;
-  }
-
-  public void setValues(List<Values> values) {
-    this.values = values;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -109,15 +77,14 @@ public class Attributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Attributes attributes = (Attributes) o;
+    Values attributes = (Values) o;
     return Objects.equals(this.id, attributes.id) &&
-        Objects.equals(this.valueName, attributes.valueName) &&
-        Objects.equals(this.values, attributes.values);
+        Objects.equals(this.name, attributes.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, valueName, values);
+    return Objects.hash(id, name);
   }
 
 
@@ -127,8 +94,7 @@ public class Attributes {
     sb.append("class Attributes {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    valueName: ").append(toIndentedString(valueName)).append("\n");
-    sb.append("    values: ").append(toIndentedString(values)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

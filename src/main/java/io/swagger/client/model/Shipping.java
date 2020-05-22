@@ -38,6 +38,9 @@ public class Shipping {
 
   @JsonProperty("methods")
   private List<String> methods = null;
+  
+  @JsonProperty("free_methods")
+  private List<FreeMethods> freeMethods = null;
 
   @JsonProperty("dimensions")
   private Object dimensions = null;
@@ -130,6 +133,34 @@ public class Shipping {
   public void setMethods(List<String> methods) {
     this.methods = methods;
   }
+  
+  
+  public Shipping freeMethods(List<FreeMethods> freeMethods) {
+    this.freeMethods = freeMethods;
+    return this;
+  }
+
+  public Shipping addFreeMethodsItem(FreeMethods freeMethodsItem) {
+    if (this.freeMethods == null) {
+      this.freeMethods = new ArrayList<FreeMethods>();
+    }
+    this.freeMethods.add(freeMethodsItem);
+    return this;
+  }
+
+   /**
+   * Get methods
+   * @return methods
+  **/
+  @ApiModelProperty(value = "")
+  public List<FreeMethods> getFreeMethods() {
+    return freeMethods;
+  }
+
+  public void setFreeMethods(List<FreeMethods> freeMethods) {
+    this.freeMethods = freeMethods;
+  }
+
 
   public Shipping dimensions(Object dimensions) {
     this.dimensions = dimensions;
